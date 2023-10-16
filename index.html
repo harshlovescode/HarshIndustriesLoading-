@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Industries Freight Cost Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fce4ec; /* Light Pink Background */
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff; /* White Background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff69b4; /* Pink Text */
+        }
+
+        label, input, button {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #ff69b4; /* Pink Button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #ff1493; /* Darker Pink on Hover */
+        }
+
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ff69b4; /* Pink Text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Harsh Industries Freight Cost Calculator</h2>
+        <label for="weight">Weight in KGS:</label>
+        <input type="number" id="weight" min="100" required>
+        <button onclick="calculateCharges()">Calculate</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateCharges() {
+            const weightInKgs = parseInt(document.getElementById("weight").value);
+            let result = 0;
+
+            if (weightInKgs >= 100) {
+                const weightInQuintals = Math.floor(weightInKgs / 100);
+                result = weightInQuintals * 15;
+                document.getElementById("result").innerText = `Loading Charges: ₹${result}`;
+            } else {
+                document.getElementById("result").innerText = "Weight must be at least 100 KGS";
+            }
+        }
+    </script>
+</body>
+</html>
